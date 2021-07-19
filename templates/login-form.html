@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <form method="POST">{% csrf_token %}
+        App for internal use only. To request access please contact support@semfleet.com
+        {{ form.as_p }}
+
+        <input type="submit" name="submit">
+    </form>
+{% endblock %}

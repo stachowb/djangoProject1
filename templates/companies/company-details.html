@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Company List{% endblock %}
+{% include "messages.html" %}
+{% block content %}
+<div>
+{{ company.name }}
+{{ company.pk }}
+</div>
+{% endblock %}

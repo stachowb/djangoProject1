@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="offset-3 col-md-6">
+        <form method="POST">{% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <input type="submit" class="btn btn-primary" value="SAVE">
+        </form>
+    </div>
+{% endblock %}

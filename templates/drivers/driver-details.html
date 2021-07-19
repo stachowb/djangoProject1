@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Company List{% endblock %}
+{% include "messages.html" %}
+{% block content %}
+    <div>
+        {{ driver.first_name }}
+        {{ driver.last_name }}
+        {{ driver.vehicle }}
+        {{ driver.company }}
+    </div>
+{% endblock %}

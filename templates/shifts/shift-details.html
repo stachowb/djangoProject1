@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Company List{% endblock %}
+{% include "messages.html" %}
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Equipment Type</th>
+            <th scope="col">Clock In</th>
+            <th scope="col">Clock Out</th>
+            <th scope="col">Shift Length</th>
+            <th scope="col">Overhours</th>
+            <th scope="col">Distance</th>
+            <th scope="col">Above 200 KM</th>
+            <th scope="col">Regular Pay</th>
+            <th scope="col">Overhour Bonus</th>
+            <th scope="col">Distance Bonus</th>
+            <th scope="col">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td scope="col">{{ shift.driver.first_name }}</td>
+            <td scope="col">{{ shift.driver.last_name }}</td>
+            <td scope="col">{{ shift.driver.get_vehicle_display }}</td>
+            <td scope="col">{{ shift.clock_in }}</td>
+            <td scope="col">{{ shift.clock_out }}</td>
+            <td scope="col">{{ shift.calculate_shift_length }}</td>
+            <td scope="col">{{ shift.calculate_bonus_time }}</td>
+            <td scope="col">{{ shift.distance }}</td>
+            <td scope="col">{{ shift.calculate_distance_above_200 }}</td>
+            <td scope="col">{{ shift.calculate_regular_pay }}</td>
+            <td scope="col">{{ shift.calculate_overhour_bonus }}</td>
+            <td scope="col">{{ shift.calculate_distance_bonus }}</td>
+            <td scope="col">{{ shift.calculate_total }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
