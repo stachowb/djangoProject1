@@ -24,7 +24,7 @@
         </thead>
         <tbody>
         <tr>
-            <td scope="col">{{ shift.tag.name }}</td>
+            <td scope="col">{% for tag in shift.tags_set.all %} {{ tag.name }} {% endfor %}</td>
             <td scope="col">{{ shift.driver.first_name }}</td>
             <td scope="col">{{ shift.driver.last_name }}</td>
             <td scope="col">{{ shift.driver.get_vehicle_display }}</td>
