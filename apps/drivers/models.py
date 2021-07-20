@@ -24,7 +24,7 @@ class Driver(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.__str__())
+            self.slug = slugify(str(self.id) + self.__str__())
         super(Driver, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
