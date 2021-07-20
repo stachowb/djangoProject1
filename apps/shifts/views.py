@@ -5,6 +5,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import ShiftCreationForm
 from .models import Shift
+from .filters import ShiftFilter
 
 
 class ShiftCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
@@ -39,3 +40,8 @@ class ShiftListView(LoginRequiredMixin, ListView):
     template_name = "shifts/shift-list.html"
     paginate_by = 50
     context_object_name = 'shifts'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = ShiftFilter(self.request.GET, queryset=self.get_queryset())
+        return context
