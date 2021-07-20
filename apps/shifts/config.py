@@ -1,5 +1,7 @@
 from datetime import time, timedelta, date
 
+# Additional variables stored in one place in case some of the parameters changed at some point
+
 # data and corresponding column in input file
 DRIVER_NAME = 0
 COMPANY_NAME = 1

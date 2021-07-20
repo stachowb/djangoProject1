@@ -5,6 +5,9 @@ from apps.companies.models import Company
 
 
 class Driver(models.Model):
+    """
+    Abstract representation of a person performing driver duties at work
+    """
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)

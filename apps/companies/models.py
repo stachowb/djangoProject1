@@ -4,6 +4,9 @@ from django.urls import reverse_lazy
 
 
 class Company(models.Model):
+    """
+    Abstract representation of a company that a driver works for
+    """
     name = models.CharField(max_length=120)
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
 
