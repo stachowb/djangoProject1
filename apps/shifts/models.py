@@ -122,7 +122,7 @@ class Shift(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.__str__())
-        return super().save(self, *args, **kwargs)
+        super(Shift, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse_lazy('shift-view', kwargs={"slug": self.slug})
