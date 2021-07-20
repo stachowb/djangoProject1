@@ -182,8 +182,11 @@ class Tag(models.Model):
     """
     Additional information connect to every shift (approved, payed, rejected etc...)
     """
-    shift = models.ManyToManyField(Shift)
+    shift = models.ManyToManyField(Shift, blank=True, null=True)
     name = models.CharField(max_length=20)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse_lazy('tag-list')

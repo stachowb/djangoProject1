@@ -4,7 +4,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView, D
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import ShiftCreationForm
-from .models import Shift
+from .models import Shift, Tag
 from .filters import ShiftFilter
 
 
@@ -45,3 +45,23 @@ class ShiftListView(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['filter'] = ShiftFilter(self.request.GET, queryset=self.get_queryset())
         return context
+
+
+class TagCreateView(CreateView):
+    model = Tag
+    fields = ['name']
+    template_name = "shifts/tag-create.html"
+
+
+class TagListView(ListView):
+    model = Tag
+    template_name = "shifts/tag-list.html"
+    paginate_by = 50
+    context_object_name = 'tags'
+
+
+class TagDeleteView(DeleteView):
+    model = Tag
+    template_name = "shifts/tag-delete.html"
+    success_message = "Tag has been deleted"
+    success_url = reverse_lazy("tag-list")

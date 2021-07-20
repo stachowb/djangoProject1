@@ -6,6 +6,7 @@
     <table class="table">
         <thead>
         <tr>
+            <th scope="col">Status</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Equipment Type</th>
@@ -23,6 +24,7 @@
         </thead>
         <tbody>
         <tr>
+            <td scope="col">{{ shift.tag.name }}</td>
             <td scope="col">{{ shift.driver.first_name }}</td>
             <td scope="col">{{ shift.driver.last_name }}</td>
             <td scope="col">{{ shift.driver.get_vehicle_display }}</td>
